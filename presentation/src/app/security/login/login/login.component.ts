@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.loginForm = this.formBuilder.group({
       usuario: ['',
         [
@@ -47,13 +48,18 @@ export class LoginComponent implements OnInit {
       .autenticar(usuario, senha)
       .subscribe((response) => {
 
+        // Limpa o cache
+        this.tokenService.deleteCarrinho();
+        this.tokenService.deleteCarrinhoPayload();
+
         // Busca o ID do Usuário
         this.clienteService.getDetails().subscribe(data => {
 
           this.tokenService.setUserId(data.username);
+          this.router.navigate([''], {});
         })
 
-        this.router.navigate([''], {});
+
 
       }, error => Swal.fire('Usuário ou senha inválidos!')
       );

@@ -36,7 +36,8 @@ export class CarrinhoComponent implements OnInit {
     this.carrinho = JSON.parse(this.tokenService.getCarrinho());
     this.token = this.tokenService.getToken();
 
-    this.buscar();
+    if (this.token)
+      this.buscar();
   }
 
   // Busca dados na base
@@ -52,7 +53,7 @@ export class CarrinhoComponent implements OnInit {
 
         // Salva em cache
         this.tokenService.setCarrinho(this.carrinhos[0]);
-      } 
+      }
 
     }, error => {
 
@@ -114,7 +115,9 @@ export class CarrinhoComponent implements OnInit {
 
   async cadastrar(carrinhoPayLoad: Carrinho) {
 
-    this.carrinho = JSON.parse(this.tokenService.getCarrinho());
+    var cache = this.tokenService.getCarrinho()
+    if (cache != 'undefined')
+      this.carrinho = JSON.parse(this.tokenService.getCarrinho());
 
     // Exclui o carrinho atual do banco
     if (this.carrinho)

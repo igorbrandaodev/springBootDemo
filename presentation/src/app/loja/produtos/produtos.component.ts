@@ -60,6 +60,7 @@ export class ProdutosComponent implements OnInit {
       this.carrinhoPayLoad.produtos = [];
     }
 
+    debugger
     if (this.token) {
       //Swal.fire(JSON.stringify(produto));
       if (produto.estoque.quantidade <= 0)
