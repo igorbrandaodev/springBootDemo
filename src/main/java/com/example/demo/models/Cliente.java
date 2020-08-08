@@ -19,13 +19,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
-public class Cliente implements UserDetails, Serializable {
+public class Cliente implements  UserDetails, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	private String nome;
 
@@ -41,10 +41,11 @@ public class Cliente implements UserDetails, Serializable {
 		
 	}
 	
-	public Cliente(String nome, String usuario, String senha) {
+	public Cliente(String nome, String usuario, String senha, Date dataCadastro) {
 		this.nome = nome;
 		this.usuario = usuario;
 		this.senha = senha;
+		this.dataCadastro = dataCadastro;
 	}
 
 	@ManyToMany
@@ -56,11 +57,11 @@ public class Cliente implements UserDetails, Serializable {
 	private List<Carrinho> carrinhos;
 
 	// Get Set
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -73,7 +74,7 @@ public class Cliente implements UserDetails, Serializable {
 	}
 
 	public String getUsuario() {
-		return usuario;
+		return String.valueOf(id);
 	}
 
 	public void setUsuario(String usuario) {

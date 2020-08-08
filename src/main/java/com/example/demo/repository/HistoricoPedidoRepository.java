@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.models.Cliente;
 import com.example.demo.models.HistoricoPedido;
 
-public interface HistoricoPedidoRepository extends JpaRepository<HistoricoPedido, Long>{
+public interface HistoricoPedidoRepository extends JpaRepository<HistoricoPedido, Integer>{
 
 }
 

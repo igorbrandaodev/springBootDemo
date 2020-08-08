@@ -1,6 +1,7 @@
 package com.example.demo;
 
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
         List<Cliente> clientes = clienteRepository.findAll();
 
         if (clientes.isEmpty()) {
-            createCliente("igor", "igor", passwordEncoder.encode("123"));
-            createCliente("bruno", "bruno", passwordEncoder.encode("1234"));
+            createCliente("igor", "igor", passwordEncoder.encode("123"), new Date());
+            createCliente("bruno", "bruno", passwordEncoder.encode("1234"), new Date());
         }
         
         
@@ -51,9 +52,9 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 
     }
 
-    public void createCliente(String nome, String usuario, String senha) {
+    public void createCliente(String nome, String usuario, String senha, Date dataCadastro) {
 
-        Cliente cliente = new Cliente(nome, usuario, senha);
+        Cliente cliente = new Cliente(nome, usuario, senha, dataCadastro);
         clienteRepository.save(cliente);
     }
     

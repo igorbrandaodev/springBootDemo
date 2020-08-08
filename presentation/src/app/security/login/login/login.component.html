@@ -1,0 +1,14 @@
+<div class="container-login">
+    <form [formGroup]="loginForm" class="form-signin" (submit)="login()">
+        <img class="mb-4" src="" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Entrar</h1>
+        <label for="inputEmail" class="sr-only">Usuário</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Usuário" required autofocus
+            formControlName="usuario">
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required
+            formControlName="senha" autocomplete="true">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; IBN Sistemas 2020</p>
+    </form>
+</div>

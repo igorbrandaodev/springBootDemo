@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.models.Cliente;
@@ -17,12 +19,12 @@ public class ClienteController {
         this.repository = clienteRepository;
     }
     
-    @GetMapping("/login")
-    public String index() {
-        return "Página de login liberada!";
-    }
     
-   
+    @GetMapping("/clientDetails")
+    public Object clientDetails() {
+    	return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+    }
     
     @GetMapping("/clientes")
     public Iterable<Cliente> getAll() {

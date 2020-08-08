@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand navbar-light bg-light rounded">
+  <a class="navbar-brand" [routerLink]='["/"]'>Loja</a>
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" [routerLinkActive]='["link-active"]'>
+        <a class="nav-link" [routerLink]='["/carrinho"]'>Carrinho</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]='["link-active"]'>
+        <a class="nav-link" [routerLink]='["/pedidos"]'>Pedidos</a>
+      </li>
+    </ul>
+  </div>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul class="navbar-nav">
+      <li class="nav-item" [routerLinkActive]='["link-active"]'>
+        <a *ngIf="!token" class="nav-link" [routerLink]='["/login"]'>Login</a>
+        <a *ngIf="token" class="nav-link" [routerLink]='["/login"]' (click)=logout()>Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

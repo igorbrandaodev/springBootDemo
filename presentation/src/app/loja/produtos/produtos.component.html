@@ -1,0 +1,39 @@
+<h1>Produtos</h1>
+<p class="lead"></p>
+<div class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar por nome" aria-label="Pesquisar por nome"
+        [(ngModel)]="filtro">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="filtrar()">Filtrar</button>
+    &nbsp;<button *ngIf="filtro !== ''" class="btn btn-outline-success my-2 my-sm-0" type="submit"
+        (click)="buscar();filtro='';">Limpar</button>
+</div>
+<br>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Estoque</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of produtos">
+                <td>{{produto.nome}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.valor}}</td>
+                <td>{{produto.estoque.quantidade}}</td>
+                <td><button type="button" class="btn btn-success" (click)="adicionar(produto)">Adicionar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<hr>
+<app-carrinho (carrinhoCadastrado)="buscar()"></app-carrinho>
+<br>
+<br>

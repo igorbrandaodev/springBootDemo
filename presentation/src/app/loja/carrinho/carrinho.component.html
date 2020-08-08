@@ -1,0 +1,31 @@
+<p style="color:red">{{texto}}</p>
+
+<h1>Carrinho</h1>
+
+<div class="table-responsive">
+    <table class="table" *ngFor="let carrinho of carrinhos">
+        <thead class="thead-light">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Ações</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let produto of carrinho.produto">
+                <td>{{produto.nome}}</td>
+                <td>{{produto.descricao}}</td>
+                <td>{{produto.valor}}</td>
+                <td><button type="button" class="btn btn-success" (click)="adicionar(produto)">Adicionar</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="remover(produto)">Remover</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="!carrinhos"> Nenhum produto no carrinho</div>
+
+<div *ngIf="carrinhos" class="col col-12">
+    <button type="button" class="btn btn-success" (click)="finalizar()">Finalizar Pedido</button>
+</div>

@@ -1,0 +1,28 @@
+<h1>Pedidos</h1>
+<p style="color:red">{{texto}}</p>
+
+<div  *ngFor="let pedido of pedidos">
+
+    <div class="table-responsive">
+        <h4>Data: {{pedido.dataCadastro}}</h4>
+        <h5> Produtos</h5>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let produto of pedido.produto">
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.descricao}}</td>
+                    <td>{{produto.valor}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="!pedidos"> Nenhum pedido cadastrado</div>

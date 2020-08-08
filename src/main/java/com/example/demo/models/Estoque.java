@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +24,8 @@ public class Estoque {
 
 	@OneToOne(mappedBy = "estoque")
 	private Produto produto;
+	
+	private Date dataAtualizacao;
 
 	public Estoque() {
 
@@ -54,6 +58,14 @@ public class Estoque {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+
+	public Date getDataAtualizacao() {
+		return dataAtualizacao;
+	}
+
+	public void setDataAtualizacao(Date dataCadastro) {
+		this.dataAtualizacao = dataCadastro;
 	}
 
 }
