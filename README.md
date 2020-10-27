@@ -3,10 +3,12 @@
 
 
 ###### Credenciais para teste:
-- Usuário: igor
-- Senha: 123
-- Usuário: bruno
-- Senha: 1234
+
+	• Usuário: igor
+	• Senha: 123
+	• Usuário: bruno
+	• Senha: 1234
+
 
 ###### Tecnologias utilizadas:
 
